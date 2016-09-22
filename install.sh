@@ -1,5 +1,9 @@
 #! /bin/sh
 
+# color definition
+RED='\033[0;31m'
+NC='\033[0m'
+
 # check command exists
 function is_command_exist()
 {
@@ -21,7 +25,20 @@ is=$(is_command_exist 'vim')
 if [ ${is} == 1 ]; then
 	echo "vim is found."
 else
-	echo "vim is not found, install vim first."
+	echo ''
+	echo -e "    ${RED}vim is not found, install vim first.${NC}"
+	echo ''
+	exit
+fi
+
+# check ctags installation
+is=$(is_command_exist 'ctags')
+if [ ${is} == 1 ]; then
+	echo "ctags is found."
+else
+	echo ''
+	echo -e "    ${RED}ctags is not found, install ctags first.${NC}"
+	echo ''
 	exit
 fi
 
@@ -30,7 +47,7 @@ is=$(is_package_installed 'the_silver_searcher')
 if [ ${is} == 1 ]; then
 	echo "the_silver_searcher is found."
 else
-	echo "the_silver_searcher is not found, install the_silver_searcher first."
+	echo -e "    ${RED}the_silver_searcher is not found, install the_silver_searcher first.${NC}"
 	echo ''
 	echo "   rpm -Uvh http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm  (CentOS 7)"
 	echo "   or"
@@ -39,6 +56,8 @@ else
 	echo ''
 	exit
 fi
+
+exit
 
 # backup ~/.vim and ~/.vimrc
 suffix=`date +"%Y%m%d%H%M"`
