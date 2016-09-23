@@ -16,7 +16,7 @@ set runtimepath^=~/.vim
 let g:ag_working_path_mode="r"
 
 " define operation: open the definition in a new tab
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>:exec("TagbarToggle")<CR>:exec("Project")<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " show tab number
