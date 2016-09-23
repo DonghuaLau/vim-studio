@@ -3,6 +3,8 @@
 "	from: https://github.com/DonghuaLau/hua-vim.git
 "------------------------
 
+let hua_vim_version='1.0.0'
+
 set ts=4
 
 " tagbar plugin setting

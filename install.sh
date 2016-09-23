@@ -20,6 +20,15 @@ function is_package_installed()
 	echo ${exist}
 }
 
+# check hua-vim installation
+hua_vim_version=`cat ~/.vimrc | grep hua_vim_version | awk -F"'" '{print $2}'`
+if [ "SS${hua_vim_version}" != "SS" ]; then
+	echo "hua-vim has installed."
+	exit
+else
+	echo "hua-vim will be installing."
+fi
+
 # check vim installation
 is=$(is_command_exist 'vim')
 if [ ${is} == 1 ]; then
@@ -56,8 +65,6 @@ else
 	echo ''
 	exit
 fi
-
-exit
 
 # backup ~/.vim and ~/.vimrc
 suffix=`date +"%Y%m%d%H%M"`
