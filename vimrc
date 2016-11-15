@@ -6,6 +6,7 @@
 let hua_vim_version='1.0.0'
 
 set ts=4
+color koehler
 
 " tagbar plugin setting
 nmap <F8> :TagbarToggle<CR>
