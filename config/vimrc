@@ -1,0 +1,14 @@
+
+set shell=/bin/bash " optional for Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" setting
+let g:vspath = "~/projects/vim-studio"
+let g:python3 = "/usr/local/bin/python3"
+
+" init
+exec "source " . g:vspath . "/config/common.vim"
+
+" move to plugin later
+"exec "source " . g:vspath . "/devel/kola.vim"
