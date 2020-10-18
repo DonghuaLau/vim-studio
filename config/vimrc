@@ -9,3 +9,5 @@ let g:python3 = "/usr/local/bin/python3"
 
 " init
 exec "source " . g:vspath . "/config/common.vim"
+
+" TODO: 代码格式化, ALE, YCM代码提示没有参数 ...

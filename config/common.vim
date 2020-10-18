@@ -42,16 +42,12 @@ call plug#begin()
     Plug 'skywind3000/gutentags_plus'
     "Plug 'skywind3000/vim-preview' " 感觉效果不大，与ctrl + w + ]差不多"
     
-    " 代码补全方案一
-    "
-    
-    " 代码补全方案二（YCM），安装复杂，还未体验
-    "Plug 'Valloric/YouCompleteMe', {'do':'./install.py --clang-completer --go-completer --java-completer'}
+    " 代码提示与补全
     Plug 'Valloric/YouCompleteMe'
     "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
     "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
     
-    " 语法错误提示
+    " 语法错误提示(YCM也支持)
     "Plug 'w0rp/ale' " not working
     
     " golang
@@ -68,41 +64,6 @@ call plug#begin()
     Plug 'deepzliu/vim-studio' 
 
 call plug#end()
-
-" 对应语言需要安装相应的检查工具 (yum无法安装ale_linters)
-" https://github.com/w0rp/ale
-"	let g:ale_linters = {
-"		\   'cpp': ['cppcheck','clang','gcc'],
-"		\   'c': ['cppcheck','clang', 'gcc'],
-"		\   'python': ['pylint'],
-"		\   'bash': ['shellcheck'],
-"		\   'go': ['golint'],
-"		\}
-"let g:ale_linters_explicit = 1 "除g:ale_linters指定，其他不可用
-"let g:ale_linters = {
-"	\   'cpp': ['cppcheck'],
-"	\   'c': ['cppcheck'],
-"	\}
-"let g:ale_completion_enabled = 1
-"let g:ale_sign_column_always = 1
-"let g:ale_completion_delay = 500
-"let g:ale_echo_delay = 20
-"let g:ale_lint_delay = 500
-"let g:ale_echo_msg_format = '[%linter%] %code: %%s'
-"let g:ale_lint_on_text_changed = 'normal'
-"let g:ale_lint_on_insert_leave = 1
-"let g:airline#extensions#ale#enabled = 1
-""let g:ale_set_quickfix = 1
-""let g:ale_open_list = 1"打开quitfix对话框
-"let g:ale_statusline_format = ['X %d', '⚡ %d', '~ ok']
-"let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
-"let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
-"let g:ale_c_cppcheck_options = '-Wall -O2 -std=c99'
-"let g:ale_cpp_cppcheck_options = '-Wall -O2 -std=c++14'
-"
-"let g:ale_sign_error = ">>"
-"let g:ale_sign_warning = "--"
-""map <F7> ::ALEToggle<CR>
 
 "自动载入ctags gtags
 if version >= 800
@@ -163,21 +124,35 @@ endif
 let g:ycm_server_python_interpreter = g:python3
 let g:ycm_global_ycm_extra_conf = g:vspath . '/config/ycm_extra_conf.py'
 
-" Add highlighting for function definition in C++
-"function! EnhanceCppSyntax()
-"	syn match cppFuncDef "::\~\?\zs\h\w*\ze([^)]*\()\s*\(const\)\?\)\?$"
-"	hi def link cppFuncDef Special
-"endfunction 
+set completeopt=menu,menuone " 关闭函数原型预览窗口（两行，没生效）
+let g:ycm_add_preview_to_completeopt = 0 
 
-" tagbar plugin setting
+"let g:ycm_show_diagnostics_ui = 0 " 关闭代码检查
+
+" 只分析白名单中文件类型对应的文件
+let g:ycm_filetype_whitelist = {
+			\ "c":1,
+			\ "cc":1,
+			\ "cpp":1,
+			\ "h":1,
+			\ "hpp":1,
+			\ "go":1,
+			\ "sh":1,
+			\ "zsh":1,
+			\ "pl":1,
+			\ "py":1,
+			\ "l":1,
+			\ "lex":1,
+			\ "y":1,
+			\ "yy":1,
+			\ "yacc":1,
+			\ "s":1,
+			\ }
+
+
 " ag.vim plugin setting
 set runtimepath^=~/.vim
-"let g:ag_prg="<custom-ag-path-goes-here> --vimgrep"
 let g:ag_working_path_mode="r"
-
-"let g:ConqueTerm_PyVersion = 3 " 本机的 python 是 2.7,所以这里设置成 2
-"let g:ConqueTerm_StartMessages = 0 "去掉烦人的警告
-
 
 " jce 
 augroup filetype
