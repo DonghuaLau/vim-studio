@@ -124,6 +124,6 @@ brew install global
 ```
 
 #### [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe)
-安装教程：[官方](https://github.com/ycm-core/YouCompleteMe#macos), [辅助](https://vimjc.com/vim-youcompleteme-install.html)
-```
-```
+安装教程：[官方](https://github.com/ycm-core/YouCompleteMe#macos), [辅助](https://vimjc.com/vim-youcompleteme-install.html)。
+
+（mac下似乎不安装macvim也没什么问题）
