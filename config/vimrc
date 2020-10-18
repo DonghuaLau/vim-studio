@@ -9,6 +9,3 @@ let g:python3 = "/usr/local/bin/python3"
 
 " init
 exec "source " . g:vspath . "/config/common.vim"
-
-" move to plugin later
-"exec "source " . g:vspath . "/devel/kola.vim"

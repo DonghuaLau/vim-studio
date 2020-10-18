@@ -257,6 +257,7 @@ set nobackup
 set nopaste " paste without indent
 set nocindent
 set hlsearch
+set backspace=2 " 解决backspace键不能删除的问题
 
 "let g:islogopen = 1
 
