@@ -1,6 +1,10 @@
 # Vim Studio
 
-总有一款属于自己的IDE。 
+总有一款适合自己的IDE。 
+
+脚本开发参考：
+* [官方文档](https://www.vim.org/scripts/) 
+* [w3cschool文档](https://www.w3cschool.cn/vim/nckx1pu0.html)
 
 ## 插件及用法
 

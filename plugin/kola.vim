@@ -120,6 +120,19 @@ func QueryWord(args)
 	echo s:buf
 endfunc
 
+" support golang, add following to ~/.ctags
+"   --langdef=Go
+"   --langmap=Go:.go
+"   --regex-Go=/func([ \t]+\([^)]+\))?[ \t]+([a-zA-Z0-9_]+)/\2/d,func/
+"   --regex-Go=/var[ \t]+([a-zA-Z_][a-zA-Z0-9_]+)/\1/d,var/
+"   --regex-Go=/type[ \t]+([a-zA-Z_][a-zA-Z0-9_]+)/\1/d,type/
+
+func GenTags(args)
+    let s:cmd = "AsyncRun ctags --languages=-all --languages=+c,c++,go -R ."
+    "let s:cmd = "AsyncRun ctags \-\-languages=\-all \-\-languages=\+c,c\+\+,go \-R \."
+    exec s:cmd
+endfunc
+
 function ShowTabNo()
     let s = '' " complete tabline goes here
     " loop through each tab page
@@ -236,9 +249,9 @@ nmap \b :cp<CR>
 nmap \x :cclose<CR>
 nmap \r :exec("AsyncRun myctags")<CR>
 
-nmap \q :call QueryWord("")<CR>
-command! -nargs=* Qw :call QueryWord(<q-args>)<CR>
-
+nmap <silent> \q :call QueryWord("")<CR>
+command! -nargs=* Qw :call QueryWord(<q-args>)
+command! -nargs=* Gentags :call GenTags(<q-args>)
 command! -nargs=0 Nonum :set nonumber | :set norelativenumber
 command! -nargs=0 Num :set number | :set relativenumber
 command! -nargs=0 Noautocode :set nocindent | :set nosmartindent | :set noautoindent | :set paste
