@@ -127,6 +127,13 @@ brew install global
 
 ```
 
+**问题**
+
+* ERROR: no gtags database for this project, check gutentags's documents
+
+解决方法：确认项目目录是否符合g:gutentags_project_root的配置
+
+
 #### [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe)
 安装教程：[官方](https://github.com/ycm-core/YouCompleteMe#macos), [辅助](https://vimjc.com/vim-youcompleteme-install.html)。
 

@@ -68,7 +68,7 @@ call plug#end()
 "自动载入ctags gtags
 if version >= 800
 
-	"let g:gutentags_trace = 1 " for debug
+	let g:gutentags_trace = 0 " for debug
 
     "let $GTAGSCONF = '/data/home/deepliu/opt/gtags/share/gtags/gtags.conf'
 
@@ -82,7 +82,7 @@ if version >= 800
 	let GtagsCscope_Quiet = 1
 
     " gutentags 搜索工程目录的标志，当前文件路径向上递归直到碰到这些文件/目录名
-    let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+    let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project', 'tags']
 
     " 所生成的数据文件的名称
     let g:gutentags_ctags_tagfile = '.tags'
@@ -124,34 +124,35 @@ endif
 let g:ycm_server_python_interpreter = g:python3
 let g:ycm_global_ycm_extra_conf = g:vspath . '/config/ycm_extra_conf.py'
 
-set completeopt=menu,menuone " 关闭函数原型预览窗口（两行，没生效）
-let g:ycm_add_preview_to_completeopt = 0 
+"set completeopt=menu,menuone " 关闭函数原型预览窗口（两行，没生效）
+"let g:ycm_add_preview_to_completeopt = 0 
 
 "let g:ycm_show_diagnostics_ui = 0 " 关闭代码检查
 
 " 只分析白名单中文件类型对应的文件
-let g:ycm_filetype_whitelist = {
-			\ "c":1,
-			\ "cc":1,
-			\ "cpp":1,
-			\ "h":1,
-			\ "hpp":1,
-			\ "go":1,
-			\ "sh":1,
-			\ "zsh":1,
-			\ "pl":1,
-			\ "py":1,
-			\ "l":1,
-			\ "lex":1,
-			\ "y":1,
-			\ "yy":1,
-			\ "yacc":1,
-			\ "s":1,
-			\ }
-
+"let g:ycm_filetype_whitelist = {
+"			\ "c":1,
+"			\ "cc":1,
+"			\ "cpp":1,
+"			\ "h":1,
+"			\ "hpp":1,
+"			\ "go":1,
+"			\ "sh":1,
+"			\ "zsh":1,
+"			\ "pl":1,
+"			\ "py":1,
+"			\ "l":1,
+"			\ "lex":1,
+"			\ "y":1,
+"			\ "yy":1,
+"			\ "yacc":1,
+"			\ "s":1,
+"			\ "java":1,
+"			\ }
 
 " ag.vim plugin setting
 set runtimepath^=~/.vim
+let g:ag_prg="ag --vimgrep --ignore tags"
 let g:ag_working_path_mode="r"
 
 " jce 

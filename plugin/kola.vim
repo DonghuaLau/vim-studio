@@ -129,8 +129,14 @@ endfunc
 
 func GenTags(args)
     let s:cmd = "AsyncRun ctags --languages=-all --languages=+c,c++,go -R ."
-    "let s:cmd = "AsyncRun ctags \-\-languages=\-all \-\-languages=\+c,c\+\+,go \-R \."
     exec s:cmd
+    echo "generate C/C++, golang tags"
+endfunc
+
+func GenPtags()
+    let s:cmd = "AsyncRun " . g:vspath . "/scripts/ptags.sh"
+    exec s:cmd
+    echo "generate python tags"
 endfunc
 
 function ShowTabNo()
@@ -252,6 +258,7 @@ nmap \r :exec("AsyncRun myctags")<CR>
 nmap <silent> \q :call QueryWord("")<CR>
 command! -nargs=* Qw :call QueryWord(<q-args>)
 command! -nargs=* Gentags :call GenTags(<q-args>)
+command! -nargs=0 Genptags :call GenPtags()
 command! -nargs=0 Nonum :set nonumber | :set norelativenumber
 command! -nargs=0 Num :set number | :set relativenumber
 command! -nargs=0 Noautocode :set nocindent | :set nosmartindent | :set noautoindent | :set paste
