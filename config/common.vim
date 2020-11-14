@@ -26,6 +26,7 @@ call plug#begin()
     Plug 'jiangmiao/auto-pairs' " 括号自动补全
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'vim-scripts/vim-auto-save'
+    Plug 'junegunn/vim-easy-align'
     "Plug 'vim-scripts/Conque-Shell' " has python errors
     
     " 状态栏
@@ -43,7 +44,7 @@ call plug#begin()
     "Plug 'skywind3000/vim-preview' " 感觉效果不大，与ctrl + w + ]差不多"
     
     " 代码提示与补全
-    Plug 'Valloric/YouCompleteMe'
+    Plug 'ycm-core/YouCompleteMe'
     "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
     "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
     
@@ -125,9 +126,9 @@ let g:ycm_server_python_interpreter = g:python3
 let g:ycm_global_ycm_extra_conf = g:vspath . '/config/ycm_extra_conf.py'
 
 "set completeopt=menu,menuone " 关闭函数原型预览窗口（两行，没生效）
-"let g:ycm_add_preview_to_completeopt = 0 
+let g:ycm_add_preview_to_completeopt = 0 
 
-"let g:ycm_show_diagnostics_ui = 0 " 关闭代码检查
+let g:ycm_show_diagnostics_ui = 0 " 关闭代码检查
 
 " 只分析白名单中文件类型对应的文件
 "let g:ycm_filetype_whitelist = {
@@ -208,7 +209,7 @@ let g:updatetime = 5
 " 插入模式下不进行自动保存
 let g:auto_save_in_insert_mode = 1
 " 保存时不在状态栏提示保存时间
-"let g:auto_save_silent = 1  
+let g:auto_save_silent = 1
 
 " ============== custom setting ===================
 " Deepliu

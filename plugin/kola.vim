@@ -255,6 +255,11 @@ nmap \b :cp<CR>
 nmap \x :cclose<CR>
 nmap \r :exec("AsyncRun myctags")<CR>
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 nmap <silent> \q :call QueryWord("")<CR>
 command! -nargs=* Qw :call QueryWord(<q-args>)
 command! -nargs=* Gentags :call GenTags(<q-args>)

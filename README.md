@@ -127,7 +127,32 @@ brew install global
 
 ```
 
-**问题**
+#### vim-easy-align
+
+可视化模式下选择需要对齐的文本，输入```ga```进入EasyAlign模式，然后按下面的方式对齐：
+```
+# 默认向左对齐
+*<space>
+
+# 向右对齐
+<enter>*<space>
+
+# 居中对齐
+<enter><enter>*<space>
+```
+
+其中，```<space>```表示按空格对齐，可替换为其它需要对齐的字符，支持```=:.|&#,```。更多用法见：https://github.com/junegunn/vim-easy-align
+
+#### 远程编辑文件
+
+```
+# host可以是.ssh/config中的Host，最好配置密钥
+# 目录也可以打开，还支持FTP、SFTP、HTTP(read only)、rsync
+vim scp://user@host/filepath
+vim scp://deep@vmhost128//home/deep/nohup.out
+```
+
+**常见问题**
 
 * ERROR: no gtags database for this project, check gutentags's documents
 
