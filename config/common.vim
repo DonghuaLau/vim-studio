@@ -44,7 +44,9 @@ call plug#begin()
     "Plug 'skywind3000/vim-preview' " 感觉效果不大，与ctrl + w + ]差不多"
     
     " 代码提示与补全
-    Plug 'ycm-core/YouCompleteMe'
+    if g:ycm == 1
+        Plug 'ycm-core/YouCompleteMe'
+    endif
     "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
     "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
     

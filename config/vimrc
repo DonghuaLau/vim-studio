@@ -6,6 +6,7 @@ filetype off                  " required
 " setting
 let g:vspath = "~/projects/vim-studio"
 let g:python3 = "/usr/local/bin/python3"
+let g:ycm = 0
 
 " init
 exec "source " . g:vspath . "/config/common.vim"
