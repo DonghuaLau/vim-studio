@@ -272,3 +272,4 @@ command! Hex :%!xxd
 command! Unhex :%!xxd -r
 command! -nargs=0 GBK :e ++enc=cp936
 command! -nargs=0 UTF8 :e ++enc=utf8
+command! -nargs=1 Rename let tpname = expand('%:t') | saveas <args> | edit <args> | call delete(expand(tpname))
