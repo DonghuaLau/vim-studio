@@ -22,7 +22,8 @@ func! OpenWithTag()
 	exec ":tab split"
 	exec ":tag ".expand("<cword>")
 	"exec ":TagbarToggle"
-	exec ":Project"
+	"exec ":Project"
+	exec ":NERDTreeToggle"
 	exec "wincmd l"
 endfunc
 
@@ -128,7 +129,7 @@ endfunc
 "   --regex-Go=/type[ \t]+([a-zA-Z_][a-zA-Z0-9_]+)/\1/d,type/
 
 func GenTags(args)
-    let s:cmd = "AsyncRun ctags --languages=-all --languages=+c,c++,go,java -R ."
+    let s:cmd = "AsyncRun ctags --languages=-all --languages=+c,c++,go,java " . a:args . " -R ."
     exec s:cmd
     echo "generate C/C++, golang tags"
 endfunc
