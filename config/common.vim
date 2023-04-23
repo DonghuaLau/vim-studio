@@ -11,22 +11,24 @@ elseif s:uname == "Linux"
 	exec "source " . g:vspath . "/config/linux.vim"
 endif
 
+let g:tags_conf = "/home/deepliu/deepliu/projects/toolkit/linux/bin/tags.txt"
+
 
 " vim-plug
 call plug#begin()
 
     Plug 'skywind3000/asyncrun.vim'
-    Plug 'rstacruz/sparkup', {'rtp': 'vim/'} " for html code
+    "Plug 'rstacruz/sparkup', {'rtp': 'vim/'} " for html code
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " F7
     Plug 'scrooloose/nerdcommenter'
     Plug 'https://github.com/majutsushi/tagbar.git'
     Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
     Plug 'https://github.com/rking/ag.vim.git'
-    Plug 'https://github.com/vimplugin/project.vim.git'
+    "Plug 'https://github.com/vimplugin/project.vim.git'
     Plug 'jiangmiao/auto-pairs' " 括号自动补全
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'vim-scripts/vim-auto-save'
-    Plug 'junegunn/vim-easy-align'
+    "Plug 'junegunn/vim-easy-align'
     "Plug 'vim-scripts/Conque-Shell' " has python errors
     
     " 状态栏
@@ -39,8 +41,8 @@ call plug#begin()
     
     " 符号索引
     Plug 'vim-scripts/gtags.vim'
-    Plug 'ludovicchabant/vim-gutentags'
-    Plug 'skywind3000/gutentags_plus'
+    "Plug 'ludovicchabant/vim-gutentags'
+    "Plug 'skywind3000/gutentags_plus'
     "Plug 'skywind3000/vim-preview' " 感觉效果不大，与ctrl + w + ]差不多"
     
     " 代码提示与补全
@@ -219,7 +221,9 @@ let g:auto_save_silent = 1
 let NERDTreeIgnore = ['\.o$', '\.tar.gz$', '\.so', '\.pyc$', 'unit_test', 'pressure_test']
 
 syntax on
-set ts=4
+set ts=2
+set softtabstop=2
+set shiftwidth=2 " 缩进的空格数
 set expandtab " replace tab as blank
 "set fileencodings=cp936
 "set fileencodings=utf8
